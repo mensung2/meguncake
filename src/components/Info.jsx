@@ -22,6 +22,7 @@ const Stinfo = styled.div`
   height: 800px;
   display: flex;
   justify-content: center;
+  font-family: Arial;
 `;
 
 const StBack = styled.div`
@@ -38,7 +39,8 @@ const StPBox = styled.div`
   flex-direction: column;
   align-items: center;
   font-weight: 900;
-  font-size: 40px;
+  color: black;
+  font-size: 30px;
   text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
 `;
 export default Info;

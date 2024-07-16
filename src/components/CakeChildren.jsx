@@ -47,6 +47,9 @@ const CakeChildren = () => {
 
   const handleDrop = (type) => (e) => {
     e.preventDefault();
+    if (type === "lid" && cakeLid >= 2) {
+      return;
+    }
     switch (type) {
       case "saha":
         setCakeSaha((prevCount) => prevCount + 1);
@@ -94,10 +97,15 @@ const CakeChildren = () => {
         setTimeout(() => setShrink(false), 500);
         break;
       case "f":
-        setCakeLid((prevCount) => prevCount + 1);
-        setCakeCount((prevCount) => prevCount - 1);
-        setShrink(true);
-        setTimeout(() => setShrink(false), 500);
+        setCakeLid((prevCount) => {
+          if (prevCount < 2) {
+            setCakeCount((prevCount) => prevCount - 1);
+            setShrink(true);
+            setTimeout(() => setShrink(false), 500);
+            return prevCount + 1;
+          }
+          return prevCount;
+        });
         break;
       default:
         break;
